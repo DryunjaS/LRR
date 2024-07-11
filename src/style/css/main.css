@@ -53,6 +53,6 @@ th {
           align-items: center;
 }
 .container img {
-  width: calc(var(--index) * 25);
   height: calc(var(--index) * 15);
+  margin: 5px;
 }

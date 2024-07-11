@@ -1,3 +1,4 @@
+import Decimation from "./components/Decimation"
 import InputErr from "./components/InputErr"
 import InputSeed from "./components/InputSeed"
 import LRR from "./components/LRR"

@@ -8,6 +8,8 @@ import { outputPSP } from "../function/outputPSP"
 const InputSeed = () => {
 	const [length, setLength] = useState(0)
 	const [input, setInput] = useState("")
+	const [zotValue, setZotValue] = useState(0)
+
 	const [valuePSP, setValuePSP] = useState<number[]>([])
 
 	useEffect(() => {
@@ -30,6 +32,10 @@ const InputSeed = () => {
 		store.truePSP = output
 	}, [input, store.select.dot])
 
+	useEffect(() => {
+		store.setZotValue(zotValue)
+	}, [zotValue])
+
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const inputValue = event.target.value.replace(/\s/g, "")
 		const filteredInput = inputValue.replace(/[^01]/g, "")
@@ -47,6 +53,18 @@ const InputSeed = () => {
 					id='basic-seed'
 					onChange={handleInputChange}
 					value={input}
+				/>
+			</InputGroup>
+			<Form.Label htmlFor='basic-seed' className='title'>
+				Введите зачетный отрезок
+			</Form.Label>
+			<InputGroup className='mb-3'>
+				<Form.Control
+					id='basic-zot'
+					type='number'
+					min={0}
+					onChange={(e) => setZotValue(Number(e.target.value))}
+					value={zotValue}
 				/>
 			</InputGroup>
 			<Form.Label htmlFor='basic-PSP' className='title'>
